@@ -14,6 +14,27 @@
 <link rel="icon" type="image/png" href="icons/icon-512.png"/>
 <link rel="stylesheet" href="style.css"/>
 <link rel="stylesheet" href="file.css"/>
+	<style>
+		#kakao-ad-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999998;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s;
+        }
+        #kakao-ad-button:hover {
+            background-color: #45a049;
+        }
+	</style>
 </head>
 <body>
 <!--<script src="/ad.js"></script>-->
@@ -33,5 +54,8 @@ if (location.protocol.substr(0, 4) === "file")
 </noscript>
 <script src="scripts/supportcheck.js"></script>
 <script src="scripts/main.js" type="module"></script>
+<div>
+	
+</div>
 </body>
 </html>
