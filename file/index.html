@@ -14,8 +14,15 @@
 <link rel="icon" type="image/png" href="icons/icon-512.png"/>
 <link rel="stylesheet" href="style.css"/>
 <link rel="stylesheet" href="file.css"/>
-	<style>
-		#kakao-ad-button {
+</head>
+<body>
+<script>
+	function createControlButton() {
+    // 1. CSSの挿入
+	const BUTTON_ID = `kakao-ad-button`
+    const style = document.createElement('style');
+    const cssText = `
+        #${BUTTON_ID} {
             position: fixed;
             bottom: 20px;
             left: 50%;
@@ -31,13 +38,28 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.2s;
         }
-        #kakao-ad-button:hover {
+        #${BUTTON_ID}:hover {
             background-color: #45a049;
         }
-	</style>
-</head>
-<body>
-<!--<script src="/ad.js"></script>-->
+    `;
+    style.textContent = cssText;
+    print(`style.textContent (first 50 chars): ${style.textContent.substring(0, 50)}...`);
+    document.head.appendChild(style);
+
+    // 2. ボタン要素の作成
+    const button = document.createElement('button');
+    button.id = BUTTON_ID;
+    button.textContent = 'BGM 再生 ▶️';
+    print(`Button created with ID: ${button.id}`);
+    
+    // 3. クリックイベントリスナーを設定
+    button.addEventListener('click', toggleBGM);
+
+    // 4. bodyに挿入
+    document.body.appendChild(button);
+    console.log("BGM制御ボタンを画面下部に配置しました。");
+}
+</script>
 <script src="/audio.js?name=bgm_emotive.mp3&s=0&e=119"></script>
 <script>
 if (location.protocol.substr(0, 4) === "file")
